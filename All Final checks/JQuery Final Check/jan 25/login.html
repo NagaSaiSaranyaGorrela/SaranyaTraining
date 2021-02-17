@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Login page</title>
+    <link href="StyleSheet1.css" rel="stylesheet" />
+    <script src="JavaScript.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#admin").hide();
+            $("#customer").hide();
+            var result = true;
+            $("#logform").submit(function (e) {
+                e.preventDefault();
+                result = validateloginForm();
+               
+                if (result == true) {
+                    var username = $("#username").val();
+                    var password = $("#password").val();
+                    var retrievedObject = localStorage.getItem(username);
+                    if (retrievedObject == null) {
+                        alert("Incorrect Username or Password");
+                    }
+                    else {
+                        var obje = JSON.parse(retrievedObject);
+                        if ((obje.username == username) && (obje.password == password)) {
+                            alert("Logged in Successfully");
+                            var usertype = obje.usertype;
+                            if (usertype == "admin") {
+                                $("#admin").show();
+                            }
+                            else {
+                                $("#customer").show();
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+    </head>
+<body style="padding-top:15px;">
+    <ul style="height:70px;">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="register.html">Register</a></li>
+    </ul>
+    <div id="customer"><a href="file:///C:/Users/saranya/OneDrive/Desktop/movie-cruiser/WebContent/movie-list-customer.html">movie</a></div>
+    <div id="admin"><a href="file:///C:/Users/saranya/OneDrive/Desktop/movie-cruiser/WebContent/movie-list-admin.html"> admin</a></div>
+    <h2><b>  Login </b> </h2>
+    <form id="logform" action="">
+        <label for="username"><b>Username</b></label><br />
+        <input type="text" id="username" placeholder="Enter User Name" /><br />
+        <label for="password"><b> Password</b></label><br />
+        <input type="password" id="password" placeholder="Enter Password" /><br /><br />
+        <input type="submit" value="Login" /><br /><br />
+        <input type="checkbox" checked />Remember me<br /><br />
+        <p id="i1">
+            <button type="button" class="btn btn-danger">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Forgot <a href=" #"> password?</a>
+        </p>
+    </form>
+    <footer>
+        Â© 2020 CTS Limited
+    </footer>
+</body>
+</html>

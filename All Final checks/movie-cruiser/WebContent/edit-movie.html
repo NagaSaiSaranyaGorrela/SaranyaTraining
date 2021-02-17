@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>edit movie</title>
+    <link href="style/style.css" rel="stylesheet" />
+    <script src="js/script.js"></script>
+
+
+</head>
+<body onload="movieedit()">
+    <h1 id="i1">
+        <span> Movie Cruiser</span>
+        <span> <img src="images/mviimage.jpeg" /></span>
+        <span><a href="movie-list-admin.html" id="i2" style="float:right">Movies</a> </span>
+    </h1>
+
+    <h1 style="margin-left:50px; ">Edit Movie</h1>
+    <form name="myform" action="edit-movie-status.html" onsubmit="return validateForm();">
+        <table>
+            <tr>
+                <td colspan="4"><label for="Title"> Title</label></td>
+            </tr>
+            <tr>
+                <td colspan="4"><input type="text" id="Title" style="width:520px; " value="" /></td>
+            </tr>
+            <tr>
+                <td><label for="Gross"> Gross($)</label></td>
+                <td> <label for="Active"> Active</label></td>
+                <td><label for="DateofLaunch"> Date of Launch</label></td>
+                <td><label for="Genre"> Genre</label></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" id="Gross" value="" />
+                </td>
+                <td>
+                    yes<input type="radio" name="Active" id="Active" checked />
+                    no<input type="radio" name="Active" id="Active" />
+                </td>
+                <td>
+                    <input type="text" id="DateofLaunch" value="" />
+                </td>
+                <td>
+                    <select value="Superhero">
+                        <option> Science Fiction</option>
+                        <option> Superhero</option>
+                        <option> Romance</option>
+                        <option> Comedy</option>
+                        <option> Adventure</option>
+                        <option> Thriller</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    <input type="checkbox" checked />
+                    <label for="HasTeaser"> Has Teaser</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Save" style="background-color:darkblue; color:white;" />
+                </td>
+            </tr>
+        </table>
+    </form>
+    <footer>Copyright © 2019 </footer>
+</body>
+</html>
